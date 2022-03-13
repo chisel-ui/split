@@ -1,4 +1,4 @@
-# `@chisel-ui/inline-cluster`
+# `@chisel-ui/split`
 
 > WIP: This experiment is brand new and not ready for the real world!
 
