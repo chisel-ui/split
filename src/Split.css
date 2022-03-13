@@ -1,10 +1,10 @@
-[data-bedrock-split] {
+[data-chisel-split] {
     box-sizing: border-box;
     display: grid;
     gap: var(--gutter, 0px);
     grid-template-columns: var(--columns, 1fr);
 }
 
-[data-bedrock-split] > * {
+[data-chisel-split] > * {
     margin: 0;
 }

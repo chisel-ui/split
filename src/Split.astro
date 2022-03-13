@@ -1,13 +1,13 @@
 ---
-import { Gutter, getSafeGutter, BaseTheme, Sizes, uid } from '@chisel-ui/core'
+import { getSafeGutter, sizes, uid } from '@chisel-ui/core'
 import './Split.css'
-import type { StackProps } from '@chisel-ui/stack'
+import type { StackProps } from '@chisel-ui/stack/astro'
 
 export type Fraction = 'auto-start' | 'auto-end' | '1/4' | '1/3' | '1/2' | '2/3' | '3/4'
 
 export interface SplitProps extends StackProps {
     fraction?: Fraction
-    switchAt?: number | string | keyof Sizes
+    switchAt?: number | string | keyof sizes
 }
 
 const fractions = {
@@ -20,21 +20,21 @@ const fractions = {
     'auto-end': '1fr auto'
 }
 
-function getBreakpoint(switchAt?: number | string | keyof Sizes) {
+function getBreakpoint(switchAt?: number | string | keyof sizes) {
     if (!switchAt) { return undefined }
 
-    if (switchAt in Sizes) { return Sizes[switchAt] }
+    if (switchAt in sizes) { return sizes[switchAt] }
 
     if (typeof switchAt === 'number') { return `${switchAt}px` }
 
     return switchAt
 }
 
-const { gutter = '0px', theme = {}, as: Tag = 'div', fraction = '1/2', switchAt, ...props } = Astro.props as StackProps
+const { gutter = '0px', theme = {}, as: Tag = 'div', fraction = '1/2', switchAt, style, ...props } = Astro.props as StackProps
 const id = uid()
 
 const maybeGutter = getSafeGutter(theme, gutter)
-const maybeFraction = fractions[fraction] = fractions['1/2']
+const maybeFraction = fractions[fraction] || fractions['1/2']
 const maybeBreakpoint = getBreakpoint(switchAt)
 
 const inlineStyle = maybeBreakpoint && `
@@ -46,7 +46,7 @@ const inlineStyle = maybeBreakpoint && `
 `
 ---
 
-<Tag data-chisel-split {id} style={`--gutter: ${maybeGutter}; --columns: ${maybeFraction};`}>
+<Tag data-chisel-split {id} style={`--gutter: ${maybeGutter};${style}`} {...props}>
     <slot />
 </Tag>
 
