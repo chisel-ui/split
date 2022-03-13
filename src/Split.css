@@ -1,0 +1,10 @@
+[data-bedrock-split] {
+    box-sizing: border-box;
+    display: grid;
+    gap: var(--gutter, 0px);
+    grid-template-columns: var(--columns, 1fr);
+}
+
+[data-bedrock-split] > * {
+    margin: 0;
+}

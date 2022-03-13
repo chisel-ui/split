@@ -1,0 +1,46 @@
+{
+    "name": "@chisel-ui/split",
+    "version": "0.0.1",
+    "description": "chisel-ui split layout primitive",
+    "private": false,
+    "type": "module",
+    "exports": {
+        "./css": "./dist/Split.css",
+        "./astro": "./src/Split.astro"
+    },
+    "files": [
+        "src",
+        "dist"
+    ],
+    "scripts": {
+        "build": "tsup src/Split.css --clean",
+        "watch": "npm run build -- --watch src",
+        "prepublishOnly": "npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/chisel-ui/split.git"
+    },
+    "keywords": [
+        "astro",
+        "split",
+        "layout"
+    ],
+    "author": "tony-sull <tony.f.sullivan@outlook.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/chisel-ui/split/issues"
+    },
+    "homepage": "https://github.com/chisel-ui/split#readme",
+    "devDependencies": {
+        "@chisel-ui/core": "^0.0.3",
+        "@chisel-ui/stack": "^0.0.3",
+        "autoprefixer": "^10.4.2",
+        "postcss": "^8.4.8",
+        "tsup": "^5.12.1",
+        "typescript": "^4.6.2"
+    },
+    "peerDependencies": {
+        "astro": "^0.24.0"
+    }
+}
