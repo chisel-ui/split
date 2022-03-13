@@ -1,6 +1,6 @@
 {
     "name": "@chisel-ui/split",
-    "version": "0.0.3",
+    "version": "0.0.1",
     "description": "chisel-ui split layout primitive",
     "private": false,
     "type": "module",
