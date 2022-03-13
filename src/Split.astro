@@ -30,7 +30,7 @@ function getBreakpoint(switchAt?: number | string | keyof sizes) {
     return switchAt
 }
 
-const { gutter = '0px', theme = {}, as: Tag = 'div', fraction = '1/2', switchAt, style, ...props } = Astro.props as StackProps
+const { gutter = '0px', theme = {}, as: Tag = 'div', fraction = '1/2', switchAt, style = '', ...props } = Astro.props as StackProps
 const id = uid()
 
 const maybeGutter = getSafeGutter(theme, gutter)
